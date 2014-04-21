@@ -34,6 +34,12 @@ const NSString *SP_URL_REMOVEFAVORITES = @"http://www.supuy.com/api/phone/Remove
 const NSString *SP_METHOD_REMOVEFAVORITES =@"RemoveFavorites";
 const NSString *SP_URL_GETTICKETLIST = @"http://www.supuy.com/api/phone/GetTicketList";//优惠劵列表
 const NSString *SP_METHOD_GETTICKETLIST = @"GetTicketList";
+
+const NSString *SP_URL_GETINVOICELIST = @"http://www.supuy.com/api/phone/GetInvoiceInfos";//发票列表
+const NSString *SP_METHOD_GETINVOICELIST = @"GetInvoiceInfos";
+
+
+
 const NSString *SP_URL_GETTICKET = @"http://www.supuy.com/api/phone/GetTicket";                 //优惠劵详细
 const NSString *SP_METHOD_GETTICKET = @"GetTicket";
 const NSString *SP_URL_BINDTICKET = @"http://www.supuy.com/api/phone/BindTicket";                 //添加优惠劵

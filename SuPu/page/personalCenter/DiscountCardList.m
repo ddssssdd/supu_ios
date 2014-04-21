@@ -176,7 +176,7 @@
         int count = [self.navigationController viewControllers].count;
         SPBalanceAccountViewController *spbavc = [[self.navigationController viewControllers] objectAtIndex:count-2];
         spbavc.ticketno = @"";
-        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:4];
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:5];
         UITableViewCell *cell = [spbavc.tableView cellForRowAtIndexPath:indexPath];
         cell.textLabel.text = [NSString stringWithFormat:@"优 惠 劵："];
         [self.navigationController popViewControllerAnimated:YES];

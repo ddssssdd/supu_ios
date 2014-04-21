@@ -13,10 +13,11 @@
 #import "Member.h"
 #import "SPGetMemberInfoAction.h"
 #import "SPGetTicketInfoAction.h"
+#import "InvoiceSelectController.h"
 #define PRICETEXT 555
 #define DISCOUNTCARTEXT 666
-
-@interface SPBalanceAccountViewController ()
+#define INVOICETEXT 777
+@interface SPBalanceAccountViewController ()<InvoiceSelectDelegate>
 @property (nonatomic,retain) NSString *cashString;//账户输入的现金额度
 
 @property (retain, nonatomic) NSIndexPath *lastindexpath;
@@ -26,6 +27,9 @@
 @property (retain, nonatomic) NSString *shippingName;
 @property float ticketdiscount;
 @property BOOL isPad;
+@property (retain,nonatomic) NSString *invoiceID;
+@property (retain,nonatomic) NSString *invoiceName;
+@property (retain,nonatomic) NSString *invoiceHead;
 
 @property (nonatomic,retain)UITableViewCell *selectedCell;
 @property (nonatomic,retain)UIButton *delete_coupoons;
@@ -87,7 +91,7 @@
     self.title = @"结算中心";
     self.UMStr = @"结算中心";
     self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"背景.jpg"]];
-    stitleArray=[[NSMutableArray alloc] initWithObjects:@"",@"支付方式：",@"现金账户：",@"配送方式：", @"优 惠 劵：",@"",@"留  言：",nil];
+    stitleArray=[[NSMutableArray alloc] initWithObjects:@"",@"支付方式：",@"现金账户：",@"配送方式：",@"发票信息：", @"优 惠 劵：",@"",@"留  言：",nil];
     
     [self setRightBarButton:@"提交订单" backgroundimagename:@"barButton.png" target:self action:@selector(submitOrderPay)];
     
@@ -155,7 +159,7 @@
 #pragma mark tableview的代理和数据源
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return  7;
+    return  8;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -167,11 +171,11 @@
 {
     if (self.isPad) {
         if (indexPath.section == 0) return 170;
-        if (indexPath.section == 5)  return 174;
+        if (indexPath.section == 6)  return 174;
         return 80;
     }else{
         if (indexPath.section == 0) return 85;
-        if (indexPath.section == 5)  return 87;
+        if (indexPath.section == 6)  return 87;
         return 40;
     }
 }
@@ -206,6 +210,25 @@
         if (section == 4) {
             if (self.isPad) {
                 cell.textLabel.frame = CGRectMake(16, 20, 140, 44);
+                _invoicetext = [[UILabel alloc] initWithFrame:CGRectMake(150, 10, 300, 60)];
+                [_invoicetext setFont:[UIFont boldSystemFontOfSize:26]];
+            }else{
+                cell.textLabel.frame = CGRectMake(8, 10, 70, 2);
+                _invoicetext = [[UILabel alloc] initWithFrame:CGRectMake(75, 5, 200, 30)];
+                [_invoicetext setFont:[UIFont boldSystemFontOfSize:14]];
+            }
+            
+            _invoicetext.tag = INVOICETEXT;
+            _invoicetext.adjustsFontSizeToFitWidth =YES;
+            _invoicetext.minimumFontSize = 6;
+            _invoicetext.text = @"选择发票信息";
+            _invoicetext.textColor = [UIColor blueColor];
+            
+            [cell.contentView addSubview:_invoicetext];
+        }
+        if (section == 5) {
+            if (self.isPad) {
+                cell.textLabel.frame = CGRectMake(16, 20, 140, 44);
                 _discountcardtext = [[UITextField alloc] initWithFrame:CGRectMake(150, 10, 300, 60)];
                 [_discountcardtext setFont:[UIFont boldSystemFontOfSize:26]];
             }else{
@@ -222,11 +245,12 @@
             [cell.contentView addSubview:_discountcardtext];
         }
         cell.textLabel.text=[stitleArray objectAtIndex:section];
+        NSLog(@"%@",cell.textLabel.text);
     }
     
-    if (section!=5&&section!=2){
+    if (section!=6&&section!=2){
         
-        if (section == 4) {
+        if (section == 5) {
             
             
             if (![strOrEmpty(self.discountcardtext.text) isEqualToString:@""]) {
@@ -247,7 +271,7 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;//现金账户和金额显示的section不需要深入到子页面
     }
     if (section==0) [cell.contentView addSubview:_saddressedView];
-    if (section==5) [cell.contentView addSubview:_spriceView];
+    if (section==6) [cell.contentView addSubview:_spriceView];
     if (section==2) cell.textLabel.textColor=[UIColor redColor];
     if (self.isPad) {
         [cell.textLabel setFont:[UIFont boldSystemFontOfSize:26]];
@@ -321,10 +345,19 @@
             break;
         }
         case 4:{
+            InvoiceSelectController *vc = [[InvoiceSelectController alloc] init];
+            vc.delegate = self;
+            vc.invoiceHead = self.invoiceHead;
+            vc.invoiceID = self.invoiceID;
+            
+            [self.navigationController pushViewController:vc animated:YES];
+            break;
+        }
+        case 5:{
             [Go2PageUtility go2DiscountCardListViewControllerFrom:self pageName:@"shoppingCart" fromWhere:@"fromSettlementCenter"];
             break;
         }
-        case 6:{
+        case 7:{
             [Go2PageUtility go2messageViewController:self userId:nil remark:self.remark];
             break;
         }
@@ -433,6 +466,14 @@
 }
 
 #pragma mark 从子页面传地址列表过来
+//发票信息
+-(void)selected_invoice:(id)data{
+    self.invoiceName = data[@"InvoiceName"];
+    self.invoiceID = data[@"InvoiceID"];
+    self.invoiceHead = data[@"InvoiceHead"];
+    self.invoicetext.text = [NSString stringWithFormat:@"%@:%@",self.invoiceName,self.invoiceHead];
+}
+
 -(void)passAddressListData:(SPAddressListData *)list
 {
     requsetData=[list retain];
@@ -643,6 +684,7 @@
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
     [self.discountcardtext resignFirstResponder];
     [self.pricetext resignFirstResponder];
+    [self.invoicetext resignFirstResponder];
 }
  
 
@@ -901,6 +943,10 @@
     [cashString release];
     [selectedCell release];
     [delete_coupoons release];
+    [_invoicetext release];
+    [_invoiceID release];
+    [_invoiceHead release];
+    [_invoiceName release];
     [super dealloc];
 }
 

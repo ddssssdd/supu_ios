@@ -40,7 +40,7 @@
 @property (retain, nonatomic) IBOutlet UILabel *zipCodeLabel;
 
 @property (retain, nonatomic) UITextField *discountcardtext;
-
+@property (retain, nonatomic) UILabel *invoicetext;
 @property (nonatomic,retain) NSString *paymentID;
 @property (nonatomic,retain) NSString *shippingID;
 

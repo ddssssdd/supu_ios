@@ -112,6 +112,9 @@
 		06F4BE6A16391BF70095DA7F /* SPArticleListAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F4BE6916391BF70095DA7F /* SPArticleListAction.m */; };
 		06FEA814163F68EC00132E36 /* SPProductDetailData.m in Sources */ = {isa = PBXBuildFile; fileRef = 06FEA813163F68EC00132E36 /* SPProductDetailData.m */; };
 		06FEA818163F6FDB00132E36 /* SPProductDetailAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 06FEA817163F6FDB00132E36 /* SPProductDetailAction.m */; };
+		5103FF5C1905354E001EB7DE /* SPInvoiceList.m in Sources */ = {isa = PBXBuildFile; fileRef = 5103FF5B1905354E001EB7DE /* SPInvoiceList.m */; };
+		5103FF651905433F001EB7DE /* SPInvoiceListAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 5103FF641905433F001EB7DE /* SPInvoiceListAction.m */; };
+		5103FF6819054774001EB7DE /* InvoiceSelectController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5103FF6719054774001EB7DE /* InvoiceSelectController.m */; };
 		DA069A18163A7AE100810B7D /* OUOSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = DA069A17163A7AE100810B7D /* OUOSearchBar.m */; };
 		DA069A1D163A7B0C00810B7D /* SPProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA069A1B163A7B0C00810B7D /* SPProductDetailViewController.m */; };
 		DA069A1E163A7B0C00810B7D /* SPProductDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA069A1C163A7B0C00810B7D /* SPProductDetailViewController.xib */; };
@@ -811,6 +814,12 @@
 		06FEA813163F68EC00132E36 /* SPProductDetailData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPProductDetailData.m; sourceTree = "<group>"; };
 		06FEA816163F6FDB00132E36 /* SPProductDetailAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPProductDetailAction.h; sourceTree = "<group>"; };
 		06FEA817163F6FDB00132E36 /* SPProductDetailAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPProductDetailAction.m; sourceTree = "<group>"; };
+		5103FF5A1905354E001EB7DE /* SPInvoiceList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPInvoiceList.h; sourceTree = "<group>"; };
+		5103FF5B1905354E001EB7DE /* SPInvoiceList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPInvoiceList.m; sourceTree = "<group>"; };
+		5103FF631905433F001EB7DE /* SPInvoiceListAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPInvoiceListAction.h; sourceTree = "<group>"; };
+		5103FF641905433F001EB7DE /* SPInvoiceListAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPInvoiceListAction.m; sourceTree = "<group>"; };
+		5103FF6619054774001EB7DE /* InvoiceSelectController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvoiceSelectController.h; sourceTree = "<group>"; };
+		5103FF6719054774001EB7DE /* InvoiceSelectController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvoiceSelectController.m; sourceTree = "<group>"; };
 		DA069A16163A7AE100810B7D /* OUOSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OUOSearchBar.h; sourceTree = "<group>"; };
 		DA069A17163A7AE100810B7D /* OUOSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OUOSearchBar.m; sourceTree = "<group>"; };
 		DA069A1A163A7B0C00810B7D /* SPProductDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPProductDetailViewController.h; sourceTree = "<group>"; };
@@ -2235,6 +2244,8 @@
 				0625913D1606C661005EFFCC /* SPShoppingCartViewController.xib */,
 				EE7BCFB71637BE4A007D487C /* SPWayViewController.h */,
 				EE7BCFB81637BE4A007D487C /* SPWayViewController.m */,
+				5103FF6619054774001EB7DE /* InvoiceSelectController.h */,
+				5103FF6719054774001EB7DE /* InvoiceSelectController.m */,
 			);
 			path = shoppingCart;
 			sourceTree = "<group>";
@@ -2289,6 +2300,8 @@
 				EEDC14FA163A978100463308 /* SPOrderData.m */,
 				06DB586616368FD8001E7164 /* SPShoppingCartData.h */,
 				06DB586716368FD8001E7164 /* SPShoppingCartData.m */,
+				5103FF5A1905354E001EB7DE /* SPInvoiceList.h */,
+				5103FF5B1905354E001EB7DE /* SPInvoiceList.m */,
 			);
 			path = shopCart;
 			sourceTree = "<group>";
@@ -2428,6 +2441,8 @@
 				EEBE589C16E4A8DA004D6E70 /* SPGetAliPayDataAction.m */,
 				EEE9BE9C16E5804100F55709 /* SPGetUPPayDataAction.h */,
 				EEE9BE9D16E5804100F55709 /* SPGetUPPayDataAction.m */,
+				5103FF631905433F001EB7DE /* SPInvoiceListAction.h */,
+				5103FF641905433F001EB7DE /* SPInvoiceListAction.m */,
 			);
 			path = shopCart;
 			sourceTree = "<group>";
@@ -4001,6 +4016,7 @@
 				0642A71B163521A400CE1C46 /* SPBaseData.m in Sources */,
 				0642A71E163521F700CE1C46 /* SPHomeData.m in Sources */,
 				0642A72516352E7B00CE1C46 /* SPCategoryListData.m in Sources */,
+				5103FF6819054774001EB7DE /* InvoiceSelectController.m in Sources */,
 				EEF183D3163536F300F6FFAA /* UserMessageObject.m in Sources */,
 				0642A733163531CF00CE1C46 /* SPBrandData.m in Sources */,
 				0642A73E163548DE00CE1C46 /* SPHomeAction.m in Sources */,
@@ -4050,6 +4066,7 @@
 				06EF255F163A849E00595423 /* SPProductListData.m in Sources */,
 				06EF2562163A8FDA00595423 /* SPBrandListAction.m in Sources */,
 				DA069BB6163A8B0300810B7D /* A2BlockDelegate+BlocksKit.m in Sources */,
+				5103FF651905433F001EB7DE /* SPInvoiceListAction.m in Sources */,
 				DA069BB7163A8B0300810B7D /* A2BlockDelegate.m in Sources */,
 				DA069BB8163A8B0300810B7D /* A2DynamicDelegate.m in Sources */,
 				DA069BB9163A8B0300810B7D /* NSArray+BlocksKit.m in Sources */,
@@ -4092,6 +4109,7 @@
 				EEBCB601163F7D9200C38BA0 /* RSADataSigner.m in Sources */,
 				EEBCB602163F7D9200C38BA0 /* RSADataVerifier.m in Sources */,
 				EEF6D914163FB462004E4C94 /* DCRoundSwitch.m in Sources */,
+				5103FF5C1905354E001EB7DE /* SPInvoiceList.m in Sources */,
 				EEF6D915163FB462004E4C94 /* DCRoundSwitchKnobLayer.m in Sources */,
 				EEF6D916163FB462004E4C94 /* DCRoundSwitchOutlineLayer.m in Sources */,
 				EEF6D917163FB462004E4C94 /* DCRoundSwitchToggleLayer.m in Sources */,

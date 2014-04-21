@@ -114,6 +114,9 @@ userId:(NSString *)userId remark:(NSString *)remark;
 
 + (void)go2DiscountCardListViewControllerFrom:(SPBaseViewController *)viewCtrl pageName:(NSString *)pageName fromWhere:(NSString *)whereString;
 
+
+
+
 //浏览记录
 +(void)go2BrowerViewController:(SPBaseViewController*)viewCtrl;
 

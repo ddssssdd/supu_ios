@@ -68,7 +68,7 @@
     int count = [self.navigationController viewControllers].count;
     SPBalanceAccountViewController *spbavc = [[self.navigationController viewControllers] objectAtIndex:count-2];
     spbavc.remark = _textView.text;
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:6];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:7];
     UITableViewCell *cell = [spbavc.tableView cellForRowAtIndexPath:indexPath];
     cell.textLabel.text = [NSString stringWithFormat:@"留  言：%@",spbavc.remark];
     [self.navigationController popViewControllerAnimated:YES];

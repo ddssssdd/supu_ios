@@ -39,6 +39,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+#if __IPHONE_OS_VERSION_MAX_ALLOWED > __IPHONE_6_1
+    if ([self respondsToSelector:@selector(edgesForExtendedLayout)])
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+#endif
     
     NSMutableArray *array=[[NSMutableArray alloc] init];
     self.entryArray=array;
