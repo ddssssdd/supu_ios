@@ -35,6 +35,7 @@
 
 - (void)viewDidLoad
 {
+    
     self.isPad = iPad;
     [super viewDidLoad];
     self.title = @"发票信息";
@@ -44,6 +45,7 @@
     _action.delegate = self;
     [_action requestInvoiceList];
     [self showHUD];
+    
 }
 -(void)completeSelect{
     if (self.delegate){
